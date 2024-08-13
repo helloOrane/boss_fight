@@ -67,6 +67,11 @@ floor_tower = 100
 
 while True:
     if life > 0:
+        ennemy_level = generate_level_ennemy(heroe_level)
+        
+        if floor_tower % 10 == 0 and life < 5:
+            print("Vous récupérez 1 point de vie.")
+            life = update_life(life, 1)
         if floor_tower % 50 == 0:
             print("Deux ennemis te font front !")
             is_winning = False
@@ -81,6 +86,9 @@ while True:
             life = update_life(life, -2)
             print("Aie, le héros perd 2 points de vie. Mais la victoire est assurée !")
             heroe_level, floor_tower, life = fight_result(True, heroe_level, floor_tower, life)
+        elif floor_tower % 15 == 0:
+            print("Victoire instantannée, on passe au niveau suivant !")
+            heroe_level, floor_tower, life = fight_result(True, heroe_level, floor_tower, life)            
         else:
             heroe_level, floor_tower, life = fight_ennemy(heroe_level, ennemy_level, floor_tower, life)
             print("=============================================")
