@@ -73,6 +73,7 @@ def update_money(money, amount):
     print("Tu as ", round((money+amount),2), "€ dans ta bourse.")
     return round((money + amount),2)
 
+
 heroe_level = 1
 life = 10
 floor_tower = 1
@@ -82,7 +83,7 @@ money = 0.00
 
 
 print("Tu pars à l'aventure, le combat pour l'étage : ",floor_tower, " va commencer!")
-while True:
+while life > 0:
     if is_trapped:
         trap = generate_trap(floor_tower)
         is_trapped = False
@@ -120,7 +121,5 @@ while True:
         else:
             heroe_level, floor_tower, life, money = fight_ennemy(heroe_level, ennemy_level, floor_tower, life, money)
             print("=============================================")
-    else:
-        print("Vous êtes mort à l'étage : ", floor_tower, "\nVotre héros a atteint le niveau : ", heroe_level)
-        break
 
+print("Vous êtes mort à l'étage : ", floor_tower, "\nVotre héros a atteint le niveau : ", heroe_level)
