@@ -2,13 +2,15 @@ import random
 
 
 def generate_level_ennemy(heroe_level):
-    number = (-1, 1)
+    number = (-1, 1, 0)
     ennemy_level = heroe_level + random.choice(number)
     return ennemy_level
 
 
 def fight_ennemy(heroe_level, ennemy_level, floor_tower, life, money, updating= True):
     is_winning = is_player_winning(heroe_level, ennemy_level)
+    if heroe_level == ennemy_level:
+        life = update_life(life, -1)
     heroe_level, floor_tower, updated_life, money_update = fight_result(is_winning, heroe_level, floor_tower, life, money, updating)
     return heroe_level, floor_tower, updated_life, money_update
 
