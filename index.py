@@ -68,6 +68,7 @@ def generate_trap(floor_tower):
 
 
 def update_money(money, amount):
+    print("Tu as ", round((money+amount),2), "€ dans ta bourse.")
     return round((money + amount),2)
 
 heroe_level = 1
@@ -77,6 +78,8 @@ trap = generate_trap(floor_tower)
 is_trapped = False
 money = 0.00
 
+
+print("Tu pars à l'aventure, le combat pour l'étage : ",floor_tower, " va commencer!")
 while True:
     if is_trapped:
         trap = generate_trap(floor_tower)
