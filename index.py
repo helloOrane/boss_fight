@@ -74,7 +74,7 @@ def update_money(money, amount):
     return round((money + amount),2)
 
 heroe_level = 1
-life = 5
+life = 10
 floor_tower = 1
 trap = generate_trap(floor_tower)
 is_trapped = False
@@ -86,7 +86,7 @@ while True:
     if is_trapped:
         trap = generate_trap(floor_tower)
         is_trapped = False
-    if floor_tower %20==0 and 1<= life <5 and money >=2:
+    if floor_tower %20==0 and 1<= life <10 and money >=2:
         drink = input("Veux-tu payer 2€ pour récupérer 1 point de vie? \noui/non: ")
         if drink == "oui":
             life = update_life(life, 1)
@@ -97,7 +97,7 @@ while True:
         is_trapped = True
     if life > 0:
         ennemy_level = generate_level_ennemy(heroe_level)
-        if floor_tower % 10 == 0 and life < 5:
+        if floor_tower % 10 == 0 and life < 10:
             print("Vous récupérez 1 point de vie.")
             life = update_life(life, 1)
         if floor_tower % 50 == 0:
